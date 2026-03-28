@@ -10,7 +10,7 @@
 ## Fase 1
 
 - `packages/domain`;
-- `packages/board`;
+- `packages/board` como wrapper serio de `goban-engine`;
 - pruebas serias de legalidad, capturas, ko y SGF.
 
 ## Fase 2

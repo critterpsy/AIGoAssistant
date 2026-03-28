@@ -4,6 +4,9 @@
   "private": true,
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "dependencies": {
+    "goban-engine": "^8.3.107"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "biome check src",

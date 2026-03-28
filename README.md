@@ -19,7 +19,7 @@ Pipeline canonico:
 
 Responsabilidades principales:
 
-- `packages/board`: verdad del tablero, legalidad, capturas, ko, SGF.
+- `packages/board`: wrapper propio sobre `goban-engine` para verdad del tablero, legalidad, capturas, ko y SGF.
 - `packages/engine`: contrato `IGoEngine`, mock e integracion con KataGo.
 - `packages/analysis`: normalizacion del output del motor.
 - `packages/style`: seleccion de jugada con quality floor y plausibility gate.
@@ -38,7 +38,13 @@ Este directorio contiene el bootstrap de Fase 0:
 - docs de arquitectura minimas;
 - backlog de implementacion por fases.
 
-No se ha completado aun el nucleo funcional ni la integracion real con dependencias.
+Decision de implementacion ya tomada:
+
+- `goban-engine` lleva reglas y estado del tablero;
+- `KataGo` solo analiza y recomienda;
+- `packages/board` protege al resto del sistema de acoplarse directo a la libreria externa.
+
+No se ha completado aun la integracion real con dependencias.
 
 ## Estructura
 

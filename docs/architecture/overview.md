@@ -10,7 +10,7 @@ Este documento define las fronteras iniciales del monorepo y las dependencias pe
 - `apps/api`: coordinacion de sesiones, juego, analisis y review.
 - `apps/worker`: tareas asincronas y procesos batch.
 - `packages/domain`: tipos y contratos compartidos.
-- `packages/board`: verdad determinista del tablero.
+- `packages/board`: wrapper propio sobre `goban-engine` para estado y reglas.
 - `packages/engine`: adaptacion a KataGo y mock de desarrollo.
 - `packages/analysis`: hechos neutrales derivados del motor.
 - `packages/concepts`: deteccion y priorizacion de conceptos.
@@ -21,7 +21,7 @@ Este documento define las fronteras iniciales del monorepo y las dependencias pe
 ## Flujo principal
 
 1. El usuario juega una piedra.
-2. `packages/board` valida y actualiza el estado.
+2. `packages/board` delega legalidad y transicion del tablero a `goban-engine`.
 3. `packages/session` decide si corresponde analisis o intervencion.
 4. `packages/engine` consulta al motor.
 5. `packages/analysis` traduce output del motor a hallazgos neutrales.
@@ -37,3 +37,4 @@ Este documento define las fronteras iniciales del monorepo y las dependencias pe
 - `packages/style` no salta el contrato `IGoEngine`.
 - `packages/session` coordina, pero no absorbe logica de dominio profundo.
 - `packages/board` no depende de `apps/*`.
+- el resto del sistema no debe depender directamente de `goban-engine`.
